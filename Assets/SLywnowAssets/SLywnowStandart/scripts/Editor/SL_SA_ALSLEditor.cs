@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class SL_SA_ALSLEditor : EditorWindow
 {
 
 	string open = "";
+	string add = "";
+	int addtpe = 0;
 	int currentId = -1;
 	bool canOpen;
 	SaveSystemSL loaded;
@@ -22,6 +25,13 @@ public class SL_SA_ALSLEditor : EditorWindow
 	bool saveonce=false;
 	string search = "";
 	string filter = "";
+	bool AddOpen;
+
+	//settings
+	bool optOpen;
+	bool showLabelAsInput;
+	string CultureInf;
+
 
 	void OnGUI()
 	{
@@ -61,7 +71,8 @@ public class SL_SA_ALSLEditor : EditorWindow
 				else
 					canOpen = false;
 
-			} catch 
+			}
+			catch
 			{
 				open = "";
 				canOpen = false;
@@ -72,6 +83,11 @@ public class SL_SA_ALSLEditor : EditorWindow
 		EditorGUILayout.Space();
 
 		//Debug.Log(canOpen);
+
+		if (Application.isPlaying)
+		{
+			GUILayout.Label("Not available in Play mode");
+		}
 
 		if (canOpen && !Application.isPlaying && loaded != null)
 		{
@@ -111,10 +127,21 @@ public class SL_SA_ALSLEditor : EditorWindow
 						default:
 							break;
 					}
-					if (loaded.type[id] == SaveSystemSL.SSLTpe.boolS)
-						inputsBools[id] = EditorGUILayout.Toggle(visname, inputsBools[id]);
+					if (!showLabelAsInput)
+					{
+						if (loaded.type[id] == SaveSystemSL.SSLTpe.boolS)
+							inputsBools[id] = EditorGUILayout.Toggle(visname, inputsBools[id]);
+						else
+							inputs[id] = EditorGUILayout.TextField(visname, inputs[id]);
+					}
 					else
-						inputs[id] = EditorGUILayout.TextField(visname, inputs[id]);
+					{
+						EditorGUILayout.TextField(visname);
+						if (loaded.type[id] == SaveSystemSL.SSLTpe.boolS)
+							inputsBools[id] = EditorGUILayout.Toggle(inputsBools[id]);
+						else
+							inputs[id] = EditorGUILayout.TextField(inputs[id]);
+					}
 
 					if (GUILayout.Button("-", GUILayout.Width(15)))
 					{
@@ -125,6 +152,70 @@ public class SL_SA_ALSLEditor : EditorWindow
 					}
 					GUILayout.EndHorizontal();
 				}
+			}
+			if (GUILayout.Button("Add"))
+			{
+				AddOpen = !AddOpen;
+			}
+			if (AddOpen)
+			{
+				GUILayout.BeginHorizontal();
+				add = EditorGUILayout.TextField("", add);
+				addtpe = EditorGUILayout.Popup(addtpe, new string[] { "String","Int","Float","Bool", "Undefined" });
+				if (!string.IsNullOrEmpty(add) && !loaded.name.Contains(add) && GUILayout.Button("Create"))
+				{
+					loaded.name.Add(add);
+					switch (addtpe)
+					{
+						case 0: //string
+							loaded.type.Add(SaveSystemSL.SSLTpe.stringS);
+							loaded.contain.Add("");
+							break;
+						case 1: //int
+							loaded.type.Add(SaveSystemSL.SSLTpe.intS);
+							loaded.contain.Add("0");
+							break;
+						case 2: //float
+							loaded.type.Add(SaveSystemSL.SSLTpe.floatS);
+							loaded.contain.Add("0");
+							break;
+						case 3: //bool
+							loaded.type.Add(SaveSystemSL.SSLTpe.boolS);
+							loaded.contain.Add("False");
+							inputsBools.Add(false);
+							break;
+						case 4: //und
+							loaded.type.Add(SaveSystemSL.SSLTpe.undefinedS);
+							loaded.contain.Add("");
+							break;
+						default:
+							break;
+					}
+					add = "";
+				}
+				GUILayout.EndHorizontal();
+				/*GUILayout.BeginHorizontal();
+				if (GUILayout.Button(addtpe==0 ? "<color=green>String</color>" : "String",styleB))
+				{
+					addtpe = 0;
+				}
+				if (GUILayout.Button(addtpe == 1 ? "<color=green>Int</color>" : "Int", styleB))
+				{
+					addtpe = 1;
+				}
+				if (GUILayout.Button(addtpe == 2 ? "<color=green>Float</color>" : "Float", styleB))
+				{
+					addtpe = 2;
+				}
+				if (GUILayout.Button(addtpe == 3 ? "<color=green>Bool</color>" : "Bool", styleB))
+				{
+					addtpe = 3;
+				}
+				if (GUILayout.Button(addtpe == 4 ? "<color=green>Undefined</color>" : "Undefined", styleB))
+				{
+					addtpe = 4;
+				}
+				GUILayout.EndHorizontal();*/
 			}
 			GUILayout.EndScrollView();
 			GUILayout.EndVertical();
@@ -137,6 +228,12 @@ public class SL_SA_ALSLEditor : EditorWindow
 			{
 				bool can = false;
 				string errorName = "";
+				if (!string.IsNullOrEmpty(CultureInf))
+				{
+					CultureInfo.CurrentCulture = new CultureInfo(CultureInf, false);
+				}
+				else
+					CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
 				try
 				{
@@ -176,7 +273,24 @@ public class SL_SA_ALSLEditor : EditorWindow
 					}
 				}
 			}
+			if (GUILayout.Button("Options"))
+			{
+				optOpen = !optOpen;
+			}
 			GUILayout.EndHorizontal();
+			if (optOpen)
+			{
+				GUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Show labels as Input (read-only)");
+				showLabelAsInput = EditorGUILayout.Toggle(showLabelAsInput);
+				GUILayout.EndHorizontal();
+				GUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Force set culture info (empty - default)");
+				CultureInf = EditorGUILayout.TextField(CultureInf);
+				GUILayout.EndHorizontal();
+			}
+
+
 			if (!string.IsNullOrEmpty(error))
 			{
 				savecoml = "";
