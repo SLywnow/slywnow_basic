@@ -295,7 +295,7 @@ Delete some file
 
 # UI works
 ### UIEditor
-
+##### Sprite generators
 `Sprite GetSpriteWithColor(Color color, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - generate sprite with some color<br/>
 ***color*** - color you want to see<br/>
 ***width*** - width of future sprite<br/>
@@ -324,6 +324,7 @@ Delete some file
 ***pivotX*** - pivotX of future sprite<br/>
 ***pivotY*** - pivotY of future sprite<br/>
 
+##### Dropdown generators
 `FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - <br/>
 
 `FillDropDownBySpriteList(out Dropdown dropdown, List<Sprite> sprites, Dropdown enter)` - <br/>
@@ -334,15 +335,26 @@ Delete some file
 
 `FillDropDownByColorAndTextList(out Dropdown dropdown, List<Color> colors, List<string> strings, Dropdown enter)` - <br/>
 
-`string GetStringUIEvent(string input, int pos, char space, string def = null)` - <br/>
+##### For Unity Events
+Allows you to process data from string, created for using in Unity Events inside editor
+***input*** - input string that stored data<br/>
+***pos*** - position of data in string<br/>
+***space*** - separator of line<br/>
+***def*** - default value<br/>
 
-`int GetIntUIEvent(string input, int pos, char space, int def = 0)` - <br/>
+`string GetStringUIEvent(string input, int pos, char space, string def = null)`<br/>
 
-`float GetFloatUIEvent(string input, int pos, char space, float def = 0)` - <br/>
+`int GetIntUIEvent(string input, int pos, char space, int def = 0)`<br/>
 
-`bool GetBoolUIEvent(string input, int pos, char space, bool def = false)` - <br/>
+`float GetFloatUIEvent(string input, int pos, char space, float def = 0)`<br/>
 
-`SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, bool movetoparent, bool usesizes = true)` - <br/>
+`bool GetBoolUIEvent(string input, int pos, char space, bool def = false)`<br/>
+Example:<br/>
+Input string `1 true myEvent`<br/>
+To get data use:
+`GetIntUIEvent(str, 0, ' ')
+GetBoolUIEvent(str, 1, ' ')
+GetStringUIEvent(str, 2, ' ')`
 
 # Attributes
 
