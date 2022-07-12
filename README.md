@@ -80,11 +80,11 @@ Loads bytes array of some file<br/>
 ***path*** - path to directory with file<br/>
 ***name*** - name of file without format<br/>
 ***format*** - format of file<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 `byte[] LoadByte(string path, bool datapath = false)`<br/> 
 ***path*** - full path to file with format<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 ##### SaveStream 
 `SaveStream(string path, string name, string format, string[] saves, bool datapath = false, bool add = false)` <br/>
@@ -92,13 +92,13 @@ Loads bytes array of some file<br/>
 ***name*** - name of file without format<br/>
 ***format*** - format of file<br/>
 ***saves*** - array of strings to write<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string[] saves, bool datapath = false, bool add = false)`
 ***path*** - full path to file with format<br/>
 ***saves*** - array of strings to write<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string name, string format, string save, bool datapath = false, bool add = false)`<br/> 
@@ -106,13 +106,13 @@ Loads bytes array of some file<br/>
 ***name*** - name of file without format<br/>
 ***format*** - format of file<br/>
 ***save*** - string to write<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string save, bool datapath = false, bool add = false)`<br/>
 ***path*** - full path to file with format<br/>
 ***save*** - string to write<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***add*** - just add new lines, don't rewrite file<br/>
 
 ##### LoadStream
@@ -121,43 +121,75 @@ Loads data from file in string format. Can return data as array or single string
 ***path*** - path to directory with file<br/>
 ***name*** - name of file without format<br/>
 ***format*** - format of file<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 `string[] LoadStream(string path, bool datapath = false)`<br/>
 ***path*** - full path to file with format<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 `string LoadStream(string path, string name, string format, bool datapath = false, bool onlyoneline = false)`<br/>
 ***path*** - path to directory with file<br/>
 ***name*** - name of file without format<br/>
 ***format*** - format of file<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***onlyoneline*** - load only first line
 
 `string LoadStream(string path, bool datapath = false, bool onlyoneline = false)`<br/>
 ***path*** - full path to file with format<br/>
-***datapath*** - add Application.dataPath before ***path***<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 ***onlyoneline*** - load only first line
 
 ##### LoadSprite
-`Sprite LoadSprite(string path, string name, string format, bool datapath = false)` - 
+Load any image file and convert it into Sprite with full rect and center pivot<br/>
+`Sprite LoadSprite(string path, string name, string format, bool datapath = false)`<br/> 
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
-`Sprite LoadSprite(string path, bool datapath = false)` - 
+`Sprite LoadSprite(string path, bool datapath = false)`<br/>
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 ##### SaveTexture
-`SaveTexture(Texture2D input, string path, TextureType format, bool datapath = false)` - 
+Save Texture2D as file<br/>
+`SaveTexture(Texture2D input, string path, TextureType format, bool datapath = false)`<br/>
+***input*** - imput texture that you want to save<br/>
+***path*** - full path to file without format<br/>
+***format*** - save file in .png or .jpg format?<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 ##### CheckFile
-`bool CheckFile(string path, string name, string format, bool datapath = false)` - 
+Checks is file or directory exist by some path<br/>
+`bool CheckFile(string path, string name, string format, bool datapath = false)`<br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
-`bool CheckFile(string path, bool datapath = false)` - 
+`bool CheckFile(string path, bool datapath = false)`<br/>
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
-`bool CheckDirectory(string path, bool datapath = false)` - 
+`bool CheckDirectory(string path, bool datapath = false)`<br/>
+***path*** - full path to directory<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
 ##### DelStream
-`DelStream(string path, string name, string format, bool datapath = false, bool dirtoo = false, bool forse = false)` - 
+Delete some file
+`DelStream(string path, string name, string format, bool datapath = false, bool dirtoo = false, bool forse = false)`<br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
+***dirtoo*** - do you want delete directory where file exist too?<br/>
+***forse*** - delete directory even if it's contain another files<br/> 
 
-`DelStream(string path, bool datapath = false, bool dirtoo = false, bool forse = false)` - 
+`DelStream(string path, bool datapath = false, bool dirtoo = false, bool forse = false)`<br/>
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
+***dirtoo*** - do you want delete directory where file exist too?<br/>
+***forse*** - delete directory even if it's contain another files<br/> 
 
 ##### Other
 `string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.<br/>
@@ -173,7 +205,7 @@ Loads data from file in string format. Can return data as array or single string
 - NamesOfDirectories - return all names of directories without full path
 
 `CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories<br/>
-***datapath*** - add Application.dataPath before ***path***
+***datapath*** - add Application.persistentDataPath before ***path***
 
 `RenameFile(string path, string oldName, string newName)` - rename some file by path
 
