@@ -248,11 +248,12 @@ Exept `[ShowFromMultiple]` all this attributes have same options:<br/>
 ***checkval*** - value to check<br/>
 ***inverse*** - inverse check, show if false and hide if true<br/>
 All types checks:<br/>
-`[ShowFromBool(string propertyName, bool checkval, bool inverse=false)]`<br/>
+`[ShowFromBool(string propertyName, bool checkval=true, bool inverse=false)]`<br/>
 `[ShowFromInt(string propertyName, int checkval, bool inverse=false)]`<br/>
 `[ShowFromFloat(string propertyName, float checkval, bool inverse=false)]`<br/>
 `[ShowFromEnum(string propertyName, int checkval, bool inverse=false)]` - type index in enum as value<br/>
 `[ShowFromString(string propertyName, string checkval, bool inverse=false)]`<br/>
+`[ShowFromObjectNotNull(string propertyName, isNull=false)]` - check is any object field null or not<br/>
 
 ##### Multiple checks
 You can check multiple values using [ShowFromMultiple]. Use it to check few values of some property or many few property with same value, or many property and values.<br/>
