@@ -133,7 +133,7 @@ namespace SLywnow
 		public List<string> valss = new List<string>();
 		public List<string> typess = new List<string>();
 
-		public enum mode { and, or};
+		public enum mode { and, or };
 		public mode Md;
 
 		/// <summary>
