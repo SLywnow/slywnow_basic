@@ -121,7 +121,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 `string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.<br/>
 *format* - format filter, leave it empty to all<br/>
 *datapath* - add Application.dataPath before *path*<br/>
-*TypeOfGet*:
+*type*:
 - All - return all files and directories in path with full path
 - Files - return all files in path with full path
 - Directory - return all directories in path with full path 
@@ -130,7 +130,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 - Formats - return all formats in this directories (indexes will be same as in NamesOfFiles)
 - NamesOfDirectories - return all names of directories without full path
 
-`CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories
+`CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories<br/>
 *datapath* - add Application.dataPath before *path*
 
 `RenameFile(string path, string oldName, string newName)` - rename some file by path
@@ -238,5 +238,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 # Attributes
 
 ### Button Attributes
+Allows you to call the function directly from the editor outside of the play mode. Usefull for some editor-only functions (don't forget about #if UNITY_EDITOR) and tests
+Based on [EasyButtons](https://github.com/madsbangh/EasyButtons), see usage here
 
 ### Show/Hide Attributes
