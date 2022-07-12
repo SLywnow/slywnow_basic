@@ -7,53 +7,53 @@ SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, hav
 
 ### Usage
 
-`StartWork(int i=0)` - Run SaveSystemAlt by some index (different indexes mean different save files)
+`StartWork(int i=0)` - run SaveSystemAlt by some index (different indexes mean different save files)
 
-`UseDebug(bool value)` - Show debug messages
+`UseDebug(bool value)` - show debug messages
 
-`bool IsWorking()` - Is SaveSystemAlt working?
+`bool IsWorking()` - is SaveSystemAlt working?
 
-`SetString(string key, string value)` - Save some string with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+`SetString(string key, string value)` - save some string with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`SetInt(string key, int value)` - Save some int with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+`SetInt(string key, int value)` - save some int with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`SetFloat(string key, float value)` - Save some float with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+`SetFloat(string key, float value)` - save some float with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`SetBool(string key, bool value)` - Save some bool with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+`SetBool(string key, bool value)` - save some bool with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`SetArray<T>(string key, T[] array)` - Save some array of any types with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+`SetArray<T>(string key, T[] array)` - save some array of any types with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`string GetString(string key, string def=null,bool fromanytype=false)` - 
+`string GetString(string key, string def=null,bool fromanytype=false)` - return string from key, if key not found will return *def* value, use *fromanytype* to get value from any types, not only from strings
 
-`int GetInt(string key, int def = 0)` - 
+`int GetInt(string key, int def = 0)` - return int from key, if key not found will return *def* value
 
-`float GetFloat(string key, float def = 0)` - 
+`float GetFloat(string key, float def = 0)` - return float from key, if key not found will return *def* value
 
-`bool GetBool(string key, bool def = false)` - 
+`bool GetBool(string key, bool def = false)` - return bool from key, if key not found will return *def* value
 
-`T[] GetArray<T>(string key)` - 
+`T[] GetArray<T>(string key)` - return array of any type from key, if key not found will return *def* value
 
-`SetValueToUndefined(string key)` - 
+`SetValueToUndefined(string key)` - change key type to Undefined, Undefined type can be reads/writes from any types (by converted to string)
 
-`SetValueToSomeType(string key, SaveSystemSL.SSLTpe type)` - 
+`SetValueToSomeType(string key, SaveSystemSL.SSLTpe type)` - change value type to another
 
-`bool HasKey(string key)` - 
+`bool HasKey(string key)` - is key exist in current session?
 
-`RenameKey(string key, string newName)` - 
+`RenameKey(string key, string newName)` - rename some key in current session
 
-`DeleteKey(string key)` - 
+`DeleteKey(string key)` - delete some key in current session
 
-`DeleteAll(string key, bool withFile = false)` - 
+`DeleteAll(string key, bool withFile = false)` - delete all keys in current session
 
-`IsIndex()` - 
+`int IsIndex()` - return current session's index (from StartWork)
 
-`StopWorkAndClose()` - 
+`StopWorkAndClose()` - stop current session and write all changes to file
 
-`SaveUpdatesNotClose()` - 
+`SaveUpdatesNotClose()` - write all changes to file but not stop current session
 
-`OutputSSAData GetData(string key)` - 
+`OutputSSAData GetData(string key)` - convert some key's data to OutputSSAData class. Use it to move keys between indexes
 
-`WriteData(OutputSSAData input)` - 
+`WriteData(OutputSSAData input)` - add some key from OutputSSAData to current session. Use it to move keys between indexes
 
 ### GUI
 To open GUI press SLywnow/Save System Alt Editor
