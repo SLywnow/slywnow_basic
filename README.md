@@ -56,9 +56,20 @@ SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, hav
 `WriteData(OutputSSAData input)` - add some key from OutputSSAData to current session. Use it to move keys between indexes
 
 ### GUI
-To open GUI press SLywnow/Save System Alt Editor
+To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-play mode.
 
-(https://i.imgur.com/iB1tGtw.png)
+![](https://i.imgur.com/iB1tGtw.png)
+1. Index number, press "Open" to load this 
+2. Search field
+3. Name and type of key
+4. Value of key
+5. Delete key
+6. Add new key
+7. Save all changes 
+8. Show/Hide options
+9. Show labels of keys as input (only for copy, you can't edit them here)
+10. Set custom CultureInfo, leave it empty for InvariantCulture. Use it if your CultureInfo is different or if you use some other CultureInfo in the game
+11. Save and hide options
 
 # Time savers
 ### FilesSet
