@@ -205,109 +205,122 @@ Delete some file
 - NamesOfDirectories - return all names of directories without full path
 
 `CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories<br/>
-***datapath*** - add Application.persistentDataPath before ***path***
+***path*** - full path to directory<br/>
+***datapath*** - add Application.persistentDataPath before ***path***<br/>
 
-`RenameFile(string path, string oldName, string newName)` - rename some file by path
+`RenameFile(string path, string oldName, string newName)` - rename some file by path<br/>
+***path*** - path to directory with file<br/>
+***oldName*** - current name of file with format<br/>
+***newName*** - new name of file with format<br/>
 
-`CopyFullDirectory(string sourceDirectory, string targetDirectory)` - copy all files from one directory to another
+`CopyFullDirectory(string sourceDirectory, string targetDirectory)` - copy all files from one directory to another<br/>
 
-`string[] ConcatArray(string[] array1, string[] array2)` - merge 2 arrays
+`string[] ConcatArray(string[] array1, string[] array2)` - merge 2 arrays<br/>
 
 ### FastFind
 
-`GameObject InCords(Vector3 position, bool first, string tag = null, string[] blocktags = null)` - 
+`GameObject InCords(Vector3 position, bool first, string tag = null, string[] blocktags = null)` - return GameObject in some position<br/>
+***position*** - position of GameObject<br/>
+***first*** - return first object on this position, Iinstead of last GameObject<br/>
+***tag*** - search GameObject with tag<br/>
+***blocktags*** - ignore GameObject with tags<br/>
 
-`GameObject[] AllInCords(Vector3 position, string tag = null, string[] blocktags = null)` - 
+`GameObject[] AllInCords(Vector3 position, string tag = null, string[] blocktags = null)`  - return all GameObjects in some position<br/>
+***position*** - position of GameObjects<br/>
+***tag*** - search GameObjects with tag<br/>
+***blocktags*** - ignore GameObjects with tags<br/>
 
-`string GetDefaultPath()` - 
+`string GetDefaultPath()` - returns path to "Documents" folder in any systems, include android (return sdcard folder)<br/>
 
-`Transform FindChild(Transform parent, string name)` - 
+`Transform FindChild(Transform parent, string name)` - find child in some transform, check all subparents too, in contrast UnityEngine's solution<br/>
 
 ### EasyDo
 
-`Texture2D byteToTexture(byte[] input)` - 
+`Texture2D byteToTexture(byte[] input)` - convert some bytes to Texture2D<br/>
 
-`List<List<T>> RemoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - 
+`List<List<T>> RemoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - <br/>
 
-`List<List<T>> MoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - 
+`List<List<T>> MoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - <br/>
 
-`CreateIndex(out List<int> output, List<int> input, int min = 100000, int max = 999999)` - 
+`CreateIndex(out List<int> output, List<int> input, int min = 100000, int max = 999999)` - <br/>
 
-`string[] UIMultiLineToStringArray(string input, string enter = "\n")` - 
+`string[] UIMultiLineToStringArray(string input, string enter = "\n")` - <br/>
 
-`string StringArrayToUIMultiLine(string[] input, string enter = "\n")` - 
+`string StringArrayToUIMultiLine(string[] input, string enter = "\n")` - <br/>
 
-`Color MoveToColor(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255)` - 
+`Color MoveToColor(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255)` - <br/>
 
-`Color MoveToColorWithAlpha(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255, byte a = 255)` - 
+`Color MoveToColorWithAlpha(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255, byte a = 255)` - <br/>
 
-`Color SetPositionColor(Color from, Color to, float position)` - 
+`Color SetPositionColor(Color from, Color to, float position)` - <br/>
 
-`Texture GetWWWTexture(string url, bool unlimited = false, float maxtime = 1000f)` - 
+`Texture GetWWWTexture(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
 
-`AudioClip GetWWWAudio(string url, bool unlimited = false, float maxtime = 1000f)` - 
+`AudioClip GetWWWAudio(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
 
-`string GetWWWString(string url, bool unlimited = false, float maxtime=1000f)` - 
+`string GetWWWString(string url, bool unlimited = false, float maxtime=1000f)` - <br/>
 
-`byte[] GetWWWBytes(string url, bool unlimited = false, float maxtime = 1000f)` - 
+`byte[] GetWWWBytes(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
 
-`T[] JSONtoArray<T>(string json)` - 
+`T[] JSONtoArray<T>(string json)` - <br/>
 
-`Shuffle<T>(this List<T> list)` - 
+`Shuffle<T>(this List<T> list)` - <br/>
 
-`Swap<T>(this List<T> list, int i, int j)` - 
+`Swap<T>(this List<T> list, int i, int j)` - <br/>
 
 # JSON works
 ### FastJSONTests
 
-`DateTime getTime(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - 
+`DateTime getTime(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - Get current time from web<br/>
+***from*** - Your api source<br/>
 
-`string getIp(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - 
+`string getIp(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - Get user's ip from web<br/>
+***from*** - Your api source<br/>
 
 ### JsonHelper
 
-`T[] FromJson<T>(string json)` - 
+`T[] FromJson<T>(string json)` - <br/>
 
-`string ToJson<T>(T[] array)` - 
+`string ToJson<T>(T[] array)` - <br/>
 
-`string ToJson<T>(T[] array, bool prettyPrint)` - 
+`string ToJson<T>(T[] array, bool prettyPrint)` - <br/>
 
-`Move<T>(this List<T> list, int i, int j)` - 
+`Move<T>(this List<T> list, int i, int j)` - <br/>
 
-`List<T> Clone<T>(this List<T> list)` - 
+`List<T> Clone<T>(this List<T> list)` - <br/>
 
-` Swap<T>(this List<T> list, int i, int j)` - 
+` Swap<T>(this List<T> list, int i, int j)` - <br/>
 
 # UI works
 ### UIEditor
 
-`Sprite GetSpriteWithColor(Color color, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - 
+`Sprite GetSpriteWithColor(Color color, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
 
-`Texture2D GetTextureWithColor(Color color, int width = 1, int height = 1)` - 
+`Texture2D GetTextureWithColor(Color color, int width = 1, int height = 1)` - <br/>
 
-`Sprite GetSpriteWithGradient(Gradient gradient, bool Xdirection, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - 
+`Sprite GetSpriteWithGradient(Gradient gradient, bool Xdirection, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
 
-`Sprite GetSpriteWithGradient2D(Gradient gradientX, Gradient gradientY, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - 
+`Sprite GetSpriteWithGradient2D(Gradient gradientX, Gradient gradientY, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
 
-`FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - 
+`FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - <br/>
 
-`FillDropDownBySpriteList(out Dropdown dropdown, List<Sprite> sprites, Dropdown enter)` - 
+`FillDropDownBySpriteList(out Dropdown dropdown, List<Sprite> sprites, Dropdown enter)` - <br/>
 
-`FillDropDownBySpriteAndTextList(out Dropdown dropdown, List<Sprite> sprites, List<string> strings, Dropdown enter)` - 
+`FillDropDownBySpriteAndTextList(out Dropdown dropdown, List<Sprite> sprites, List<string> strings, Dropdown enter)` - <br/>
 
-`FillDropDownByColorList(out Dropdown dropdown, List<Color> colors, Dropdown enter)` - 
+`FillDropDownByColorList(out Dropdown dropdown, List<Color> colors, Dropdown enter)` - <br/>
 
-`FillDropDownByColorAndTextList(out Dropdown dropdown, List<Color> colors, List<string> strings, Dropdown enter)` - 
+`FillDropDownByColorAndTextList(out Dropdown dropdown, List<Color> colors, List<string> strings, Dropdown enter)` - <br/>
 
-`string GetStringUIEvent(string input, int pos, char space, string def = null)` - 
+`string GetStringUIEvent(string input, int pos, char space, string def = null)` - <br/>
 
-`int GetIntUIEvent(string input, int pos, char space, int def = 0)` - 
+`int GetIntUIEvent(string input, int pos, char space, int def = 0)` - <br/>
 
-`float GetFloatUIEvent(string input, int pos, char space, float def = 0)` - 
+`float GetFloatUIEvent(string input, int pos, char space, float def = 0)` - <br/>
 
-`bool GetBoolUIEvent(string input, int pos, char space, bool def = false)` - 
+`bool GetBoolUIEvent(string input, int pos, char space, bool def = false)` - <br/>
 
-`SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, bool movetoparent, bool usesizes = true)` - 
+`SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, bool movetoparent, bool usesizes = true)` - <br/>
 
 # Attributes
 
