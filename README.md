@@ -102,7 +102,8 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 `Sprite LoadSprite(string path, bool datapath = false)` - 
 
-
+/n
+/n
 `SaveTexture(Texture2D input, string path, TextureType format, bool datapath = false)` - 
 
 ##### CheckFile
