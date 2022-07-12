@@ -74,10 +74,12 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 # Time savers
 ### FilesSet
 
+##### LoadByte 
 `byte[] LoadByte(string path, string name, string format, bool datapath = false)` - 
 
 `byte[] LoadByte(string path, bool datapath = false)` - 
 
+##### SaveStream 
 `SaveStream(string path, string name, string format, string[] saves, bool datapath = false, bool add = false)` - 
 
 `SaveStream(string path, string[] saves, bool datapath = false, bool add = false)` - 
@@ -86,6 +88,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 `SaveStream(string path, string save, bool datapath = false, bool add = false)` - 
 
+##### LoadStream
 `string LoadStream(string path, string name, string format, bool datapath = false)` - 
 
 `string LoadStream(string path, bool datapath = false)` - 
@@ -94,12 +97,15 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 `string LoadStream(string path, bool datapath = false, bool onlyoneline = false)` - 
 
+##### LoadSprite
 `Sprite LoadSprite(string path, string name, string format, bool datapath = false)` - 
 
 `Sprite LoadSprite(string path, bool datapath = false)` - 
 
+
 `SaveTexture(Texture2D input, string path, TextureType format, bool datapath = false)` - 
 
+##### CheckFile
 `bool CheckFile(string path, string name, string format, bool datapath = false)` - 
 
 `bool CheckFile(string path, bool datapath = false)` - 
