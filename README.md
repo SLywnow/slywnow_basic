@@ -242,7 +242,7 @@ Allows you to call the function directly from the editor outside of the play mod
 Based on [EasyButtons](https://github.com/madsbangh/EasyButtons), see usage here
 
 ### Show/Hide Attributes
-Allows you to show/hide fields in the editor without writing CustomEditor for script
+Helps you to show/hide fields in the editor without writing CustomEditor for script
 Exept `[ShowFromMultiple]` all this attributes have same options:<br/>
 ***propertyName*** - name of propertyName, recomended to use `nameof()` here<br/>
 ***checkval*** - value to check<br/>
@@ -263,6 +263,6 @@ You can check multiple values using [ShowFromMultiple]. Use it to check few valu
 - and - requires all parameters to pass check 
 - or - requires that only one parameter pass check
 <br/><br/>
-Examples: 
+Examples: <br/>
 `[ShowFromMultiple("QteType", new string[2] { "3", "4" }, "enum", ShowFromMultipleAttribute.mode.or)]` - show field if parameter QteType in 3rd ot 4th position<br/>
-`[ShowFromMultiple(new string[2] { nameof(movePattern), nameof(lookAtThePlayer) }, new string[2] { "3", "true" }, new string[2] { "enum", "bool" }, ShowFromMultipleAttribute.mode.or)]` - show field if movePattern parameter is in 3rd position or lookAtThePlayer parameter is true
+`[ShowFromMultiple(new string[2] { nameof(movePattern), nameof(lookAtThePlayer) }, new string[2] { "3", "true" }, new string[2] { "enum", "bool" }, ShowFromMultipleAttribute.mode.and)]` - show field if movePattern parameter is in 3rd position and lookAtThePlayer parameter is true
