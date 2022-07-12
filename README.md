@@ -1,6 +1,63 @@
 # What is that?
 SLywnow basic is main library for any SLywnow's assets, like SLM, AutoLang e.tc. To use it type `using SLywnow` in your script.
 
+# Save system
+### How it works
+SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, have multifiles system, have GUI inside Unity and can save Arrays and Lists.
+
+### Usage
+
+`StartWork(int i=0)` - Run SaveSystemAlt by some index (different indexes mean different save files)
+
+`UseDebug(bool value)` - Show debug messages
+
+`bool IsWorking()` - Is SaveSystemAlt working?
+
+`SetString(string key, string value)` - Save some string with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+
+`SetInt(string key, int value)` - Save some int with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+
+`SetFloat(string key, float value)` - Save some float with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+
+`SetBool(string key, bool value)` - Save some bool with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+
+`SetArray<T>(string key, T[] array)` - Save some array of any types with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
+
+`string GetString(string key, string def=null,bool fromanytype=false)` - 
+
+`int GetInt(string key, int def = 0)` - 
+
+`float GetFloat(string key, float def = 0)` - 
+
+`bool GetBool(string key, bool def = false)` - 
+
+`T[] GetArray<T>(string key)` - 
+
+`SetValueToUndefined(string key)` - 
+
+`SetValueToSomeType(string key, SaveSystemSL.SSLTpe type)` - 
+
+`bool HasKey(string key)` - 
+
+`RenameKey(string key, string newName)` - 
+
+`DeleteKey(string key)` - 
+
+`DeleteAll(string key, bool withFile = false)` - 
+
+`IsIndex()` - 
+
+`StopWorkAndClose()` - 
+
+`SaveUpdatesNotClose()` - 
+
+`OutputSSAData GetData(string key)` - 
+
+`WriteData(OutputSSAData input)` - 
+
+### GUI
+To open GUI press SLywnow/Save System Alt Editor
+
 # Time savers
 ### FilesSet
 
@@ -145,60 +202,3 @@ SLywnow basic is main library for any SLywnow's assets, like SLM, AutoLang e.tc.
 `bool GetBoolUIEvent(string input, int pos, char space, bool def = false)` - 
 
 `SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, bool movetoparent, bool usesizes = true)` - 
-
-# Save system
-### How it works
-SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, have multifiles system, have GUI inside Unity and can save Arrays and Lists.
-
-### Usage
-
-`StartWork(int i=0)` - 
-
-`UseDebug(bool value)` - 
-
-`IsWorking()` - 
-
-`SetString(string key, string value)` - 
-
-`SetInt(string key, int value)` - 
-
-`SetFloat(string key, float value)` - 
-
-`SetBool(string key, bool value)` - 
-
-`SetArray<T>(string key, T[] array)` - 
-
-`string GetString(string key, string def=null,bool fromanytype=false)` - 
-
-`int GetInt(string key, int def = 0)` - 
-
-`float GetFloat(string key, float def = 0)` - 
-
-`bool GetBool(string key, bool def = false)` - 
-
-`T[] GetArray<T>(string key)` - 
-
-`SetValueToUndefined(string key)` - 
-
-`SetValueToSomeType(string key, SaveSystemSL.SSLTpe type)` - 
-
-`bool HasKey(string key)` - 
-
-`RenameKey(string key, string newName)` - 
-
-`DeleteKey(string key)` - 
-
-`DeleteAll(string key, bool withFile = false)` - 
-
-`IsIndex()` - 
-
-`StopWorkAndClose()` - 
-
-`SaveUpdatesNotClose()` - 
-
-`OutputSSAData GetData(string key)` - 
-
-`WriteData(OutputSSAData input)` - 
-
-### GUI
-To open GUI press SLywnow/Save System Alt Editor
