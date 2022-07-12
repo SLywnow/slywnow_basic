@@ -253,6 +253,16 @@ All types checks:<br/>
 `[ShowFromFloat(string propertyName, float checkval, bool inverse=false)]`<br/>
 `[ShowFromEnum(string propertyName, int checkval, bool inverse=false)]` - type index in enum as value<br/>
 `[ShowFromString(string propertyName, string checkval, bool inverse=false)]`<br/>
+
 ##### Multiple checks
-You can check multiple values using [ShowFromMultiple]. Use it to check few values of some property or many few property with same value, or many property and values.
-***string[] propertyName/string propertyName*** 
+You can check multiple values using [ShowFromMultiple]. Use it to check few values of some property or many few property with same value, or many property and values.<br/>
+***string[] propertyName/string propertyName*** - name of property or properties (in array) to check, if you use only one property then all values will be checks only with it, if many then indexes must match
+***string[] vals/string vals*** - values of property or properties (in array) to check, if you use only one value then all properties will be checks with it, if many then indexes must match
+***string[] types/string types*** - types of properties, if all properties has same type then enter only it, if not then enter all types and indexes must match
+***Mode*** - mode of checking:
+- and - requires all parameters to pass check 
+- or - requires that only one parameter pass check
+<br/><br/>
+Examples: 
+`[ShowFromMultiple("QteType", new string[2] { "3", "4" }, "enum", ShowFromMultipleAttribute.mode.or)]` - show field if parameter QteType in 3rd ot 4th position<br/>
+`[ShowFromMultiple(new string[2] { nameof(movePattern), nameof(lookAtThePlayer) }, new string[2] { "3", "true" }, new string[2] { "enum", "bool" }, ShowFromMultipleAttribute.mode.or)]` - show field if movePattern parameter is in 3rd position or lookAtThePlayer parameter is true
