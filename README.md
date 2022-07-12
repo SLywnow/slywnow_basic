@@ -75,18 +75,45 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 ### FilesSet
 
 ##### LoadByte 
-`byte[] LoadByte(string path, string name, string format, bool datapath = false)` - 
+Loads bytes array of some file
+`byte[] LoadByte(string path, string name, string format, bool datapath = false)`<br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
 
-`byte[] LoadByte(string path, bool datapath = false)` - 
+`byte[] LoadByte(string path, bool datapath = false)`<br/> 
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
 
 ##### SaveStream 
-`SaveStream(string path, string name, string format, string[] saves, bool datapath = false, bool add = false)` - 
+`SaveStream(string path, string name, string format, string[] saves, bool datapath = false, bool add = false)` <br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***saves*** - array of strings to write<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***add*** - just add new lines, don't rewrite file
 
-`SaveStream(string path, string[] saves, bool datapath = false, bool add = false)` - 
+`SaveStream(string path, string[] saves, bool datapath = false, bool add = false)`
+***path*** - full path to file with format<br/>
+***saves*** - array of strings to write<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***add*** - just add new lines, don't rewrite file
 
-`SaveStream(string path, string name, string format, string save, bool datapath = false, bool add = false)` - 
+`SaveStream(string path, string name, string format, string save, bool datapath = false, bool add = false)`<br/> 
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***save*** - string to write<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***add*** - just add new lines, don't rewrite file
 
-`SaveStream(string path, string save, bool datapath = false, bool add = false)` - 
+`SaveStream(string path, string save, bool datapath = false, bool add = false)`<br/>
+***path*** - full path to file with format<br/>
+***save*** - string to write<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***add*** - just add new lines, don't rewrite file
 
 ##### LoadStream
 `string LoadStream(string path, string name, string format, bool datapath = false)` - 
@@ -120,7 +147,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 ##### Other
 `string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.<br/>
 ***format*** - format filter, leave it empty to all<br/>
-***datapath*** - add Application.dataPath before *path*<br/>
+***datapath*** - add Application.persistentDataPath before *path*<br/>
 ***type***:
 - All - return all files and directories in path with full path
 - Files - return all files in path with full path
@@ -131,7 +158,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 - NamesOfDirectories - return all names of directories without full path
 
 `CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories<br/>
-***datapath*** - add Application.dataPath before *path*
+***datapath*** - add Application.dataPath before ***path***
 
 `RenameFile(string path, string oldName, string newName)` - rename some file by path
 
