@@ -102,8 +102,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 `Sprite LoadSprite(string path, bool datapath = false)` - 
 
-/n
-/n
+##### SaveTexture
 `SaveTexture(Texture2D input, string path, TextureType format, bool datapath = false)` - 
 
 ##### CheckFile
@@ -113,19 +112,32 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 `bool CheckDirectory(string path, bool datapath = false)` - 
 
+##### DelStream
 `DelStream(string path, string name, string format, bool datapath = false, bool dirtoo = false, bool forse = false)` - 
 
 `DelStream(string path, bool datapath = false, bool dirtoo = false, bool forse = false)` - 
 
-`string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - 
+##### Other
+`string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.
+*format* - format filter, leave it empty to all
+*datapath* - add Application.dataPath before *path*
+*TypeOfGet*:
+- All - return all files and directories in path with full path
+- Files - return all files in path with full path
+- Directory - return all directories in path with full path 
+- NamesOfFiles - return all names of files in path without full path, based on `Path.GetFileNameWithoutExtension`
+- NamesOfFilesWithFormat - return all names of files in path with formats (indexes will be same as in NamesOfFiles)
+- Formats - return all formats in this directories (indexes will be same as in NamesOfFiles)
+- NamesOfDirectories - return all names of directories without full path
 
-`CreateDirectory(string path, bool datapath = false)` - 
+`CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories
+*datapath* - add Application.dataPath before *path*
 
-`RenameFile(string path, string oldName, string newName)` - 
+`RenameFile(string path, string oldName, string newName)` - rename some file by path
 
-`CopyFullDirectory(string sourceDirectory, string targetDirectory)` - 
+`CopyFullDirectory(string sourceDirectory, string targetDirectory)` - copy all files from one directory to another
 
-`string[] ConcatArray(string[] array1, string[] array2)` - 
+`string[] ConcatArray(string[] array1, string[] array2)` - merge 2 arrays
 
 ### FastFind
 
