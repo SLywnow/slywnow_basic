@@ -352,9 +352,11 @@ Allows you to process data from string, created for using in Unity Events inside
 Example:<br/>
 Input string `1 true myEvent`<br/>
 To get data use:<br/>
-```GetIntUIEvent(str, 0, ' ')
+```
+GetIntUIEvent(str, 0, ' ')
 GetBoolUIEvent(str, 1, ' ')
-GetStringUIEvent(str, 2, ' ')```
+GetStringUIEvent(str, 2, ' ')
+```
 
 # Attributes
 
