@@ -58,7 +58,7 @@ SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, hav
 ### GUI
 To open GUI press SLywnow/Save System Alt Editor
 
-
+(https://i.imgur.com/iB1tGtw.png)
 
 # Time savers
 ### FilesSet
@@ -204,3 +204,9 @@ To open GUI press SLywnow/Save System Alt Editor
 `bool GetBoolUIEvent(string input, int pos, char space, bool def = false)` - 
 
 `SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, bool movetoparent, bool usesizes = true)` - 
+
+# Attributes
+
+### Button Attributes
+
+### Show/Hide Attributes

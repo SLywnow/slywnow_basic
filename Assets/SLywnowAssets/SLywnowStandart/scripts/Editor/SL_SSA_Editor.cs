@@ -8,7 +8,7 @@ using UnityEngine;
 
 
 
-public class SL_SA_ALSLEditor : EditorWindow
+public class SL_SSA_Editor : EditorWindow
 {
 
 	string open = "";
@@ -29,9 +29,17 @@ public class SL_SA_ALSLEditor : EditorWindow
 
 	//settings
 	bool optOpen;
-	bool showLabelAsInput;
-	string CultureInf;
+	SL_SSA_Config config;
 
+	private void OnEnable()
+	{
+		if (FilesSet.CheckFile(Application.dataPath + "/SLywnowAssets/SLywnowStandart/config.cfg"))
+			config = JsonUtility.FromJson<SL_SSA_Config>(FilesSet.LoadStream(Application.dataPath + "/SLywnowAssets/SLywnowStandart/config.cfg", false, false));
+		else
+			config = new SL_SSA_Config();
+
+		open = config.lastOpen + "";
+	}
 
 	void OnGUI()
 	{
@@ -67,6 +75,9 @@ public class SL_SA_ALSLEditor : EditorWindow
 						else
 							inputsBools.Add(false);
 					}
+
+					config.lastOpen = open;
+					FilesSet.SaveStream(Application.dataPath + "/SLywnowAssets/SLywnowStandart/config.cfg", JsonUtility.ToJson(config, true), false, false);
 				}
 				else
 					canOpen = false;
@@ -127,7 +138,7 @@ public class SL_SA_ALSLEditor : EditorWindow
 						default:
 							break;
 					}
-					if (!showLabelAsInput)
+					if (!config.showLabelAsInput)
 					{
 						if (loaded.type[id] == SaveSystemSL.SSLTpe.boolS)
 							inputsBools[id] = EditorGUILayout.Toggle(visname, inputsBools[id]);
@@ -228,9 +239,9 @@ public class SL_SA_ALSLEditor : EditorWindow
 			{
 				bool can = false;
 				string errorName = "";
-				if (!string.IsNullOrEmpty(CultureInf))
+				if (!string.IsNullOrEmpty(config.CultureInf))
 				{
-					CultureInfo.CurrentCulture = new CultureInfo(CultureInf, false);
+					CultureInfo.CurrentCulture = new CultureInfo(config.CultureInf, false);
 				}
 				else
 					CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
@@ -282,12 +293,18 @@ public class SL_SA_ALSLEditor : EditorWindow
 			{
 				GUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField("Show labels as Input (read-only)");
-				showLabelAsInput = EditorGUILayout.Toggle(showLabelAsInput);
+				config.showLabelAsInput = EditorGUILayout.Toggle(config.showLabelAsInput);
 				GUILayout.EndHorizontal();
 				GUILayout.BeginHorizontal();
 				EditorGUILayout.LabelField("Force set culture info (empty - default)");
-				CultureInf = EditorGUILayout.TextField(CultureInf);
+				config.CultureInf = EditorGUILayout.TextField(config.CultureInf);
 				GUILayout.EndHorizontal();
+
+				if (GUILayout.Button("Save"))
+				{
+					optOpen = !optOpen;
+					FilesSet.SaveStream(Application.dataPath + "/SLywnowAssets/SLywnowStandart/config.cfg", JsonUtility.ToJson(config, true), false, false);
+				}
 			}
 
 
@@ -308,11 +325,19 @@ public class SL_SA_ALSLEditor : EditorWindow
 	}
 }
 
-public class SL_SA_ALSLEditorManager : Editor
+[System.Serializable]
+public class SL_SSA_Config
+{
+	public bool showLabelAsInput;
+	public string CultureInf;
+	public string lastOpen;
+}
+
+public class SL_SSA_EditorManager : Editor
 {
 	[MenuItem("SLywnow/SaveSystemAlt Editor")]
 	static void SetDirection()
 	{
-		EditorWindow.GetWindow(typeof(SL_SA_ALSLEditor), false, "SaveSystemAlt Editor", true);
+		EditorWindow.GetWindow(typeof(SL_SSA_Editor), false, "SaveSystemAlt Editor", true);
 	}
 }
