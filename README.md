@@ -23,15 +23,15 @@ SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, hav
 
 `SetArray<T>(string key, T[] array)` - save some array of any types with some key in current session, to write it into file use `SaveUpdatesNotClose()` or `StopWorkAndClose()`
 
-`string GetString(string key, string def=null,bool fromanytype=false)` - return string from key, if key not found will return *def* value, use *fromanytype* to get value from any types, not only from strings
+`string GetString(string key, string def=null,bool fromanytype=false)` - return string from key, if key not found will return ***def*** value, use ***fromanytype*** to get value from any types, not only from strings
 
-`int GetInt(string key, int def = 0)` - return int from key, if key not found will return *def* value
+`int GetInt(string key, int def = 0)` - return int from key, if key not found will return ***def*** value
 
-`float GetFloat(string key, float def = 0)` - return float from key, if key not found will return *def* value
+`float GetFloat(string key, float def = 0)` - return float from key, if key not found will return ***def*** value
 
-`bool GetBool(string key, bool def = false)` - return bool from key, if key not found will return *def* value
+`bool GetBool(string key, bool def = false)` - return bool from key, if key not found will return ***def*** value
 
-`T[] GetArray<T>(string key)` - return array of any type from key, if key not found will return *def* value
+`T[] GetArray<T>(string key)` - return array of any type from key, if key not found will return ***def*** value
 
 `SetValueToUndefined(string key)` - change key type to Undefined, Undefined type can be reads/writes from any types (by converted to string)
 
@@ -119,9 +119,9 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 
 ##### Other
 `string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.<br/>
-*format* - format filter, leave it empty to all<br/>
-*datapath* - add Application.dataPath before *path*<br/>
-*type*:
+***format*** - format filter, leave it empty to all<br/>
+***datapath*** - add Application.dataPath before *path*<br/>
+***type***:
 - All - return all files and directories in path with full path
 - Files - return all files in path with full path
 - Directory - return all directories in path with full path 
@@ -131,7 +131,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 - NamesOfDirectories - return all names of directories without full path
 
 `CreateDirectory(string path, bool datapath = false)` - create directory by path, can create multiple nested directories<br/>
-*datapath* - add Application.dataPath before *path*
+***datapath*** - add Application.dataPath before *path*
 
 `RenameFile(string path, string oldName, string newName)` - rename some file by path
 
@@ -244,14 +244,15 @@ Based on [EasyButtons](https://github.com/madsbangh/EasyButtons), see usage here
 ### Show/Hide Attributes
 Allows you to show/hide fields in the editor without writing CustomEditor for script
 Exept `[ShowFromMultiple]` all this attributes have same options:<br/>
-*propertyName* - name of propertyName, recomended to use `nameof()` here<br/>
-*checkval* - value to check<br/>
-*inverse* - inverse check, show if false and hide if true<br/>
+***propertyName*** - name of propertyName, recomended to use `nameof()` here<br/>
+***checkval*** - value to check<br/>
+***inverse*** - inverse check, show if false and hide if true<br/>
 All types checks:<br/>
 `[ShowFromBool(string propertyName, bool checkval, bool inverse=false)]`<br/>
 `[ShowFromInt(string propertyName, int checkval, bool inverse=false)]`<br/>
 `[ShowFromFloat(string propertyName, float checkval, bool inverse=false)]`<br/>
 `[ShowFromEnum(string propertyName, int checkval, bool inverse=false)]` - type index in enum as value<br/>
 `[ShowFromString(string propertyName, string checkval, bool inverse=false)]`<br/>
-#####Multiple checks
-[ShowFromMultiple]
+##### Multiple checks
+You can check multiple values using [ShowFromMultiple]. Use it to check few values of some property or many few property with same value, or many property and values.
+***string[] propertyName/string propertyName*** 
