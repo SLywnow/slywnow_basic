@@ -257,18 +257,5 @@ namespace SLywnow
 
 			return output;
 		}
-
-		public enum PositionInHierarchyVector {vertical, horizontal };
-		public static void SetPositionInHierarchy(Transform parent, GameObject moved, PositionInHierarchyVector vectors, 
-			bool movetoparent, bool usesizes = true)
-		{
-			int top=0;
-			int bottom = 0;
-			if (vectors==PositionInHierarchyVector.vertical)
-			{
-				top = Screen.height;
-				bottom = 0;
-			}
-		}
 	}
 }
