@@ -325,15 +325,28 @@ Delete some file
 ***pivotY*** - pivotY of future sprite<br/>
 
 ##### Dropdown generators
-`FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - <br/>
+Fills dropdown by something, use it to create drowdown in realtime
+***dropdown*** - output dropdown link<br/>
+***enter*** - input dropdown<br/>
 
-`FillDropDownBySpriteList(out Dropdown dropdown, List<Sprite> sprites, Dropdown enter)` - <br/>
+`FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - Fill dropdown by texts<br/>
+***strings*** - strings list<br/>
 
-`FillDropDownBySpriteAndTextList(out Dropdown dropdown, List<Sprite> sprites, List<string> strings, Dropdown enter)` - <br/>
+`FillDropDownBySpriteList(out Dropdown dropdown, List<Sprite> sprites, Dropdown enter)` - Fill dropdown by sprites<br/>
+***sprites*** - sprites list<br/>
 
-`FillDropDownByColorList(out Dropdown dropdown, List<Color> colors, Dropdown enter)` - <br/>
+`FillDropDownBySpriteAndTextList(out Dropdown dropdown, List<Sprite> sprites, List<string> strings, Dropdown enter)` - Fill dropdown by sprites and texts<br/>
+***strings*** - strings list<br/>
+***sprites*** - sprites list<br/>
+Lists must have same size<br/>
 
-`FillDropDownByColorAndTextList(out Dropdown dropdown, List<Color> colors, List<string> strings, Dropdown enter)` - <br/>
+`FillDropDownByColorList(out Dropdown dropdown, List<Color> colors, Dropdown enter)` - Create dropdown with colors (usefull for color choice in game)<br/>
+***colors*** - colors list<br/>
+
+`FillDropDownByColorAndTextList(out Dropdown dropdown, List<Color> colors, List<string> strings, Dropdown enter)` - Create dropdown with colors (usefull for color choice in game) and fill it by texts<br/>
+***colors*** - colors list<br/>
+***strings*** - strings list<br/>
+Lists must have same size<br/>
 
 ##### For Unity Events
 Allows you to process data from string, created for using in Unity Events inside editor
@@ -349,8 +362,9 @@ Allows you to process data from string, created for using in Unity Events inside
 `float GetFloatUIEvent(string input, int pos, char space, float def = 0)`<br/>
 
 `bool GetBoolUIEvent(string input, int pos, char space, bool def = false)`<br/>
+
 Example:<br/>
-Input string `1 true myEvent`<br/>
+Input string: `1 true myEvent`<br/>
 To get data use:<br/>
 ```
 GetIntUIEvent(str, 0, ' ')
