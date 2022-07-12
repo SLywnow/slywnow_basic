@@ -75,7 +75,7 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 ### FilesSet
 
 ##### LoadByte 
-Loads bytes array of some file
+Loads bytes array of some file<br/>
 `byte[] LoadByte(string path, string name, string format, bool datapath = false)`<br/>
 ***path*** - path to directory with file<br/>
 ***name*** - name of file without format<br/>
@@ -93,13 +93,13 @@ Loads bytes array of some file
 ***format*** - format of file<br/>
 ***saves*** - array of strings to write<br/>
 ***datapath*** - add Application.dataPath before ***path***<br/>
-***add*** - just add new lines, don't rewrite file
+***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string[] saves, bool datapath = false, bool add = false)`
 ***path*** - full path to file with format<br/>
 ***saves*** - array of strings to write<br/>
 ***datapath*** - add Application.dataPath before ***path***<br/>
-***add*** - just add new lines, don't rewrite file
+***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string name, string format, string save, bool datapath = false, bool add = false)`<br/> 
 ***path*** - path to directory with file<br/>
@@ -107,22 +107,37 @@ Loads bytes array of some file
 ***format*** - format of file<br/>
 ***save*** - string to write<br/>
 ***datapath*** - add Application.dataPath before ***path***<br/>
-***add*** - just add new lines, don't rewrite file
+***add*** - just add new lines, don't rewrite file<br/>
 
 `SaveStream(string path, string save, bool datapath = false, bool add = false)`<br/>
 ***path*** - full path to file with format<br/>
 ***save*** - string to write<br/>
 ***datapath*** - add Application.dataPath before ***path***<br/>
-***add*** - just add new lines, don't rewrite file
+***add*** - just add new lines, don't rewrite file<br/>
 
 ##### LoadStream
-`string LoadStream(string path, string name, string format, bool datapath = false)` - 
+Loads data from file in string format. Can return data as array or single string with \n as new lines<br/>
+`string[] LoadStream(string path, string name, string format, bool datapath = false)`<br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
 
-`string LoadStream(string path, bool datapath = false)` - 
+`string[] LoadStream(string path, bool datapath = false)`<br/>
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
 
-`string LoadStream(string path, string name, string format, bool datapath = false, bool onlyoneline = false)` - 
+`string LoadStream(string path, string name, string format, bool datapath = false, bool onlyoneline = false)`<br/>
+***path*** - path to directory with file<br/>
+***name*** - name of file without format<br/>
+***format*** - format of file<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***onlyoneline*** - load only first line
 
-`string LoadStream(string path, bool datapath = false, bool onlyoneline = false)` - 
+`string LoadStream(string path, bool datapath = false, bool onlyoneline = false)`<br/>
+***path*** - full path to file with format<br/>
+***datapath*** - add Application.dataPath before ***path***<br/>
+***onlyoneline*** - load only first line
 
 ##### LoadSprite
 `Sprite LoadSprite(string path, string name, string format, bool datapath = false)` - 
