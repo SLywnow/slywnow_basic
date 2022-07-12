@@ -351,9 +351,9 @@ Allows you to process data from string, created for using in Unity Events inside
 `bool GetBoolUIEvent(string input, int pos, char space, bool def = false)`<br/>
 Example:<br/>
 Input string `1 true myEvent`<br/>
-To get data use:
-`GetIntUIEvent(str, 0, ' ')
-GetBoolUIEvent(str, 1, ' ')
+To get data use:<br/>
+`GetIntUIEvent(str, 0, ' ')<br/>
+GetBoolUIEvent(str, 1, ' ')<br/>
 GetStringUIEvent(str, 2, ' ')`
 
 # Attributes
