@@ -262,8 +262,8 @@ Delete some file
 ***a*** - coefficient of change of the alpha channel<br/>
 
 `Color SetPositionColor(Color from, Color to, float position)` - get color between 2 colors with some position<br/>
-***from*** - Color1<br/>
-***to*** - Color2<br/>
+***from*** - color1<br/>
+***to*** - color2<br/>
 ***position*** - position between colors<br/>
 
 `T[] JSONtoArray<T>(string json)` - convert some JSON to array of some type<br/>
@@ -276,10 +276,10 @@ Delete some file
 ### FastJSONTests
 
 `DateTime getTime(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - Get current time from web<br/>
-***from*** - Your api source<br/>
+***from*** - your api source<br/>
 
 `string getIp(string from = "http://worldtimeapi.org/api/timezone/Europe/Moscow")` - Get user's ip from web<br/>
-***from*** - Your api source<br/>
+***from*** - your api source<br/>
 
 ### JsonHelper
 
@@ -296,13 +296,33 @@ Delete some file
 # UI works
 ### UIEditor
 
-`Sprite GetSpriteWithColor(Color color, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
+`Sprite GetSpriteWithColor(Color color, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - generate sprite with some color<br/>
+***color*** - color you want to see<br/>
+***width*** - width of future sprite<br/>
+***height*** - height of future sprite<br/>
+***pivotX*** - pivotX of future sprite<br/>
+***pivotY*** - pivotY of future sprite<br/>
 
-`Texture2D GetTextureWithColor(Color color, int width = 1, int height = 1)` - <br/>
+`Texture2D GetTextureWithColor(Color color, int width = 1, int height = 1)` - Generate Texture2D with some color<br/>
+***color*** - Color you want to see<br/>
+***width*** - width of future texture<br/>
+***height*** - height of future texture<br/>
 
-`Sprite GetSpriteWithGradient(Gradient gradient, bool Xdirection, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
+`Sprite GetSpriteWithGradient(Gradient gradient, bool Xdirection, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - Generate sprite with some gradient<br/>
+***gradient*** - gradient you want to see<br/>
+***Xdirection*** - Is axis of gradient X?<br/>
+***width*** - width of future sprite<br/>
+***height*** - height of future sprite<br/>
+***pivotX*** - pivotX of future sprite<br/>
+***pivotY*** - pivotY of future sprite<br/>
 
-`Sprite GetSpriteWithGradient2D(Gradient gradientX, Gradient gradientY, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - <br/>
+`Sprite GetSpriteWithGradient2D(Gradient gradientX, Gradient gradientY, int width = 1, int height = 1, float pivotX = 0.5f, float pivotY = 0.5f)` - Generate sprite with some gradients in both axises<br/>
+***gradientX*** - gradient on X axis<br/>
+***gradientY*** - gradient on Y axis<br/>
+***width*** - width of future sprite<br/>
+***height*** - height of future sprite<br/>
+***pivotX*** - pivotX of future sprite<br/>
+***pivotY*** - pivotY of future sprite<br/>
 
 `FillDropDownByTextList(out Dropdown dropdown, List<string> strings, Dropdown enter)` - <br/>
 
