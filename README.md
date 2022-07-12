@@ -238,35 +238,39 @@ Delete some file
 
 `Texture2D byteToTexture(byte[] input)` - convert some bytes to Texture2D<br/>
 
-`List<List<T>> RemoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - <br/>
+`string[] UIMultiLineToStringArray(string input, string enter = "\n")` - split a string into an array with string as separator<br/>
+***enter*** - separator<br/>
 
-`List<List<T>> MoveIndex<T>(List<List<T>> tomove, List<int> indexs, int index, int newplace)` - <br/>
+`string StringArrayToUIMultiLine(string[] input, string enter = "\n")` - combine array into string with some separator<br/>
+***enter*** - separator<br/>
 
-`CreateIndex(out List<int> output, List<int> input, int min = 100000, int max = 999999)` - <br/>
+`Color MoveToColor(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255)` - smooth move from one color to another. Use this in Update or FixedUpdate<br/>
+***from*** - current color<br/>
+***to*** - color you want to see<br/>
+***speed*** - speed of canges<br/>
+***r*** - coefficient of change of the red channel<br/>
+***g*** - coefficient of change of the gree channel<br/>
+***b*** - coefficient of change of the blue channel<br/>
 
-`string[] UIMultiLineToStringArray(string input, string enter = "\n")` - <br/>
+`Color MoveToColorWithAlpha(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255, byte a = 255)` - smooth move from one color to another. Use this in Update or FixedUpdate<br/>
+***from*** - current color<br/>
+***to*** - color you want to see<br/>
+***speed*** - speed of canges<br/>
+***r*** - coefficient of change of the red channel<br/>
+***g*** - coefficient of change of the gree channel<br/>
+***b*** - coefficient of change of the blue channel<br/>
+***a*** - coefficient of change of the alpha channel<br/>
 
-`string StringArrayToUIMultiLine(string[] input, string enter = "\n")` - <br/>
+`Color SetPositionColor(Color from, Color to, float position)` - get color between 2 colors with some position<br/>
+***from*** - Color1<br/>
+***to*** - Color2<br/>
+***position*** - position between colors<br/>
 
-`Color MoveToColor(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255)` - <br/>
+`T[] JSONtoArray<T>(string json)` - convert some JSON to array of some type<br/>
 
-`Color MoveToColorWithAlpha(Color from, Color to, float speed, byte r = 255, byte g = 255, byte b = 255, byte a = 255)` - <br/>
+`Shuffle<T>(this List<T> list)` - random shuffle of elements in the list<br/>
 
-`Color SetPositionColor(Color from, Color to, float position)` - <br/>
-
-`Texture GetWWWTexture(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
-
-`AudioClip GetWWWAudio(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
-
-`string GetWWWString(string url, bool unlimited = false, float maxtime=1000f)` - <br/>
-
-`byte[] GetWWWBytes(string url, bool unlimited = false, float maxtime = 1000f)` - <br/>
-
-`T[] JSONtoArray<T>(string json)` - <br/>
-
-`Shuffle<T>(this List<T> list)` - <br/>
-
-`Swap<T>(this List<T> list, int i, int j)` - <br/>
+`Swap<T>(this List<T> list, int i, int j)` - swap two elements in the list<br/>
 
 # JSON works
 ### FastJSONTests
@@ -279,17 +283,15 @@ Delete some file
 
 ### JsonHelper
 
-`T[] FromJson<T>(string json)` - <br/>
+`T[] FromJson<T>(string json)` - convert some JSON to array of some type<br/>
 
-`string ToJson<T>(T[] array)` - <br/>
+`string ToJson<T>(T[] array, bool prettyPrint=false)` - convert some array  of some type to JSON<br/>
 
-`string ToJson<T>(T[] array, bool prettyPrint)` - <br/>
+`Move<T>(this List<T> list, int i, int j)` - move element from one position to another in the list<br/>
 
-`Move<T>(this List<T> list, int i, int j)` - <br/>
+`List<T> Clone<T>(this List<T> list)` - create copy for some list<br/>
 
-`List<T> Clone<T>(this List<T> list)` - <br/>
-
-` Swap<T>(this List<T> list, int i, int j)` - <br/>
+`Swap<T>(this List<T> list, int i, int j)` - swap two elements in the list<br/>
 
 # UI works
 ### UIEditor
