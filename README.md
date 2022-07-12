@@ -238,7 +238,20 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 # Attributes
 
 ### Button Attributes
-Allows you to call the function directly from the editor outside of the play mode. Usefull for some editor-only functions (don't forget about #if UNITY_EDITOR) and tests
+Allows you to call the function directly from the editor outside of the play mode. Usefull for some editor-only functions (don't forget about #if UNITY_EDITOR) and tests<br/>
 Based on [EasyButtons](https://github.com/madsbangh/EasyButtons), see usage here
 
 ### Show/Hide Attributes
+Allows you to show/hide fields in the editor without writing CustomEditor for script
+Exept `[ShowFromMultiple]` all this attributes have same options:<br/>
+*propertyName* - name of propertyName, recomended to use `nameof()` here<br/>
+*checkval* - value to check<br/>
+*inverse* - inverse check, show if false and hide if true<br/>
+All types checks:<br/>
+`[ShowFromBool(string propertyName, bool checkval, bool inverse=false)]`<br/>
+`[ShowFromInt(string propertyName, int checkval, bool inverse=false)]`<br/>
+`[ShowFromFloat(string propertyName, float checkval, bool inverse=false)]`<br/>
+`[ShowFromEnum(string propertyName, int checkval, bool inverse=false)]` - type index in enum as value<br/>
+`[ShowFromString(string propertyName, string checkval, bool inverse=false)]`<br/>
+#####Multiple checks
+[ShowFromMultiple]
