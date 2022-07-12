@@ -1,5 +1,5 @@
 # What is that?
-SLywnow basic is main library for any SLywnow's assets, like SLM, AutoLang e.tc. To use it type `using SLywnow` in your script.
+SLywnow basic is main library for any SLywnow's assets, like SLM, AutoLang e.tc. To use it type `using SLywnow` in your script. Asset also include [ZipUtil](https://github.com/tsubaki/UnityZip "ZipUtil").
 
 # Save system
 ### How it works
@@ -57,6 +57,8 @@ SaveSystemAlt is my alternative to PlayerPerfs, that have no limits of size, hav
 
 ### GUI
 To open GUI press SLywnow/Save System Alt Editor
+
+
 
 # Time savers
 ### FilesSet
