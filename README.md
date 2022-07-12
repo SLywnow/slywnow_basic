@@ -118,9 +118,9 @@ To open GUI press SLywnow/Save System Alt Editor. This editor works only in non-
 `DelStream(string path, bool datapath = false, bool dirtoo = false, bool forse = false)` - 
 
 ##### Other
-`string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.
-*format* - format filter, leave it empty to all
-*datapath* - add Application.dataPath before *path*
+`string[] GetFilesFromdirectories(string path, string format, bool datapath = false, TypeOfGet type = TypeOfGet.Files)` - return string array with info about files/directories in path.<br/>
+*format* - format filter, leave it empty to all<br/>
+*datapath* - add Application.dataPath before *path*<br/>
 *TypeOfGet*:
 - All - return all files and directories in path with full path
 - Files - return all files in path with full path
