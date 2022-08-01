@@ -372,6 +372,10 @@ GetBoolUIEvent(str, 1, ' ')
 GetStringUIEvent(str, 2, ' ')
 ```
 
+##### Sortings
+StringLogicalComparer - natural sorting, based on https://www.codeproject.com/Articles/11016/Numeric-String-Sort-in-C
+
+
 # Attributes
 
 ### Button Attributes
