@@ -2,6 +2,7 @@
 using UnityEngine;
 using System;
 using System.Globalization;
+using System.Linq;
 
 namespace SLywnow
 {
@@ -649,7 +650,7 @@ namespace SLywnow
 					return new JSONFile();
 			}//get
 		}
-		public bool has(params string[] path_)
+		public bool Has(params string[] path_)
 		{
 			Dictionary<string, JSONFile> m = map;
 			for (int i = 0; i < path_.Length; i++)
@@ -662,7 +663,7 @@ namespace SLywnow
 			return true;
 		}
 
-		public string get(params string[] path_)
+		public string Get(params string[] path_)
 		{
 			JSONFile m = this;
 			for (int i = 0; i < path_.Length; i++)
@@ -675,7 +676,7 @@ namespace SLywnow
 			return m.value;
 		}
 
-		public string getAllKeys(params string[] path_)
+		public string GetKeysCount(params string[] path_)
 		{
 			JSONFile m = this;
 			for (int i = 0; i < path_.Length; i++)
@@ -685,11 +686,57 @@ namespace SLywnow
 					return null;
 				m = m.map[path_[i]];
 			}
-			return m.map.Keys.ToString();
+			if (m.map == null)
+				return null;
+			else
+				return m.map.Keys.Count + "";
+		}
+
+		public List<string> GetKeysNames(params string[] path_)
+		{
+			JSONFile m = this;
+			for (int i = 0; i < path_.Length; i++)
+			{
+				//Debug.Log(path_[i]+":"+(m!=null));
+				if (!m.map.ContainsKey(path_[i]))
+					return null;
+				m = m.map[path_[i]];
+			}
+			if (m.map == null)
+				return new List<string>();
+			else
+			{
+				List<string> ret = new List<string>();
+				foreach (var k in m.map.Keys)
+				{
+					ret.Add(k);
+				}
+				return ret;
+			}
+		}
+
+		public string GenrateJSONTree(string tab = "| ", params string[] path_)
+		{
+			string ret = "";
+
+			JSONFile m = this;
+
+			string prefix = string.Join("", Enumerable.Repeat(tab, path_.Length));
+
+			foreach (string s in GetKeysNames(path_))
+			{
+				ret += prefix + s + "\n";
+				List<string> newpath = path_.ToList();
+				newpath.Add(s);
+
+				ret += GenrateJSONTree(tab, newpath.ToArray());
+			}
+
+			return ret;
 		}
 
 		public char valueType = 'v';//v:value o:object a:array
-		public JSONFile parse(string txt = "")
+		public JSONFile Parse(string txt = "")
 		{
 			if (!string.IsNullOrEmpty(txt))
 			{
@@ -788,7 +835,7 @@ namespace SLywnow
 					case '{':
 					case '[':
 						pt--;
-						map[key] = new JSONFile().parse();
+						map[key] = new JSONFile().Parse();
 						break;
 					case '"':
 						map[key] = new JSONFile();
