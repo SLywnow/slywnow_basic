@@ -153,6 +153,32 @@ namespace SLywnow
 		}
 
 		/// <summary>
+		/// Save some bytes array to path
+		/// </summary>
+		/// <param name="path">Path to save ("/" automaticly added)</param>
+		/// <param name="name">Name of file</param>
+		/// <param name="format">Format of file</param>
+		/// <param name="saves">Bytes to save</param>
+		/// <param name="datapath">Added Application.persistentDataPath to path ("/" automaticly added)</param>
+		public static void SaveByte(string path, string name, string format, byte[] saves, bool datapath = false)
+		{
+			string link = path;
+			if (datapath) link = Application.persistentDataPath + "/" + path;
+			FileInfo fi = new FileInfo(link + "/" + name + "." + format);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
+			File.WriteAllBytes(link, saves);
+		}
+
+		public static void SaveByte(string path, byte[] saves, bool datapath = false)
+		{
+			string link = path;
+			if (datapath) link = Application.persistentDataPath + "/" + path;
+			FileInfo fi = new FileInfo(link);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
+			File.WriteAllBytes(link, saves);
+		}
+
+		/// <summary>
 		/// Save some strings to path
 		/// </summary>
 		/// <param name="path">Path to save ("/" automaticly added)</param>
@@ -166,7 +192,7 @@ namespace SLywnow
 			string link = path;
 			if (datapath) link = Application.persistentDataPath + "/" + path;
 			FileInfo fi = new FileInfo(link + "/" + name + "." + format);
-			if (!fi.Directory.Exists) Directory.CreateDirectory(link);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
 			StreamWriter sw = new StreamWriter(link + "/" + name + "." + format);
 			if (!fi.Exists) fi.Create();
 			if (saves.Length > 0)
@@ -189,7 +215,7 @@ namespace SLywnow
 			string link = path;
 			if (datapath) link = Application.persistentDataPath + "/" + path;
 			FileInfo fi = new FileInfo(link);
-			if (!fi.Directory.Exists) Directory.CreateDirectory(link);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
 			StreamWriter sw = new StreamWriter(link);
 			if (!fi.Exists) fi.Create();
 			if (saves.Length > 0)
@@ -213,7 +239,7 @@ namespace SLywnow
 			string link = path;
 			if (datapath) link = Application.persistentDataPath + "/" + path;
 			FileInfo fi = new FileInfo(link + "/" + name + "." + format);
-			if (!fi.Directory.Exists) Directory.CreateDirectory(link);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
 			StreamWriter sw = new StreamWriter(link + "/" + name + "." + format);
 			if (!fi.Exists) fi.Create();
 			if (!string.IsNullOrEmpty(save))
@@ -235,7 +261,7 @@ namespace SLywnow
 			string link = path;
 			if (datapath) link = Application.persistentDataPath + "/" + path;
 			FileInfo fi = new FileInfo(link);
-			if (!fi.Directory.Exists) Directory.CreateDirectory(link);
+			if (!fi.Directory.Exists) Directory.CreateDirectory(fi.Directory.FullName);
 			StreamWriter sw = new StreamWriter(link);
 			if (!fi.Exists) fi.Create();
 			if (!string.IsNullOrEmpty(save))
@@ -587,8 +613,8 @@ namespace SLywnow
 			string[] str = new string[0];
 			string[] dir = new string[0];
 			string[] fil = new string[0];
-			if (!(type == TypeOfGet.Files)) dir = Directory.GetDirectories(link);
-			if (!(type == TypeOfGet.Directory)) {
+			if (!(type == TypeOfGet.Files || type == TypeOfGet.NamesOfFiles || type == TypeOfGet.Formats || type == TypeOfGet.NamesOfFilesWithFormat)) dir = Directory.GetDirectories(link);
+			if (!(type == TypeOfGet.Directory || type == TypeOfGet.NamesOfDirectories)) {
 				if (!string.IsNullOrEmpty(format)) fil = Directory.GetFiles(link, "*." + format);
 				else fil = Directory.GetFiles(link);
 			}
@@ -910,6 +936,15 @@ namespace SLywnow
 
 	public static class EasyDo 
 	{
+
+		public static string RandomString(int length, string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+		{
+			System.Random rnd = new System.Random();
+
+			return new string(Enumerable.Repeat(chars, length)
+				.Select(s => s[rnd.Next(s.Length)]).ToArray());
+		}
+
 		public static Texture2D byteToTexture(byte[] input)
 		{
 			Texture2D output = new Texture2D(0, 0);
