@@ -65,8 +65,8 @@ namespace SLywnow
 			{
                 if (property.displayName.Contains("Element") && (property.name == "data" || property.name == "missing"))
                 {
-                    
-                    EditorGUI.PropertyField(position, property, new GUIContent("Disabled"), false);
+                    //name.Array.data[n].
+					EditorGUI.PropertyField(position, property, new GUIContent("Disabled"), false);
                 }
 			}
 

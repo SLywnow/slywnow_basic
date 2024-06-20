@@ -181,14 +181,17 @@ public class SL_SSA_Editor : EditorWindow
 						case 0: //string
 							loaded.type.Add(SaveSystemSL.SSLTpe.stringS);
 							loaded.contain.Add("");
+							inputs.Add("");
 							break;
 						case 1: //int
 							loaded.type.Add(SaveSystemSL.SSLTpe.intS);
 							loaded.contain.Add("0");
+							inputs.Add("0");
 							break;
 						case 2: //float
 							loaded.type.Add(SaveSystemSL.SSLTpe.floatS);
 							loaded.contain.Add("0");
+							inputs.Add("0");
 							break;
 						case 3: //bool
 							loaded.type.Add(SaveSystemSL.SSLTpe.boolS);
@@ -198,6 +201,7 @@ public class SL_SSA_Editor : EditorWindow
 						case 4: //und
 							loaded.type.Add(SaveSystemSL.SSLTpe.undefinedS);
 							loaded.contain.Add("");
+							inputs.Add("");
 							break;
 						default:
 							break;
