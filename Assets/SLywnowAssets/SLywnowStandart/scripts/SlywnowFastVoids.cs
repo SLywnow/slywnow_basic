@@ -4,8 +4,6 @@ using System.IO;
 using System;
 using System.Linq;
 using Random = UnityEngine.Random;
-using UnityEngine.UI;
-using UnityEngine.Networking;
 
 namespace SLywnow
 {
